@@ -2,6 +2,9 @@
 
 Este projeto implementa um sistema de formulários dinâmicos em React, onde diferentes formulários são gerados automaticamente baseados em configurações JSON. A solução foi desenvolvida seguindo princípios de clean code, SOLID e padrões de design React.
 
+![tests-passing-react-test](https://github.com/user-attachments/assets/bfd9cfb1-2197-4dff-a24a-ac26d0516906)
+
+
 ## 🚀 Tecnologias Utilizadas
 
 - React
