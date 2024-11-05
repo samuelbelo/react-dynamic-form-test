@@ -12,9 +12,9 @@ describe('DynamicField', () => {
     mockOnBlur.mockClear();
   });
 
-  test('renderiza um campo de texto padrão corretamente', () => {
+  test('renders a default text field correctly', () => {
     const field: FormField = {
-      Label: 'Nome',
+      Label: 'Name',
       Type: 'text',
       Validation: {
         required: true
@@ -30,14 +30,14 @@ describe('DynamicField', () => {
       />
     );
 
-    const textField = screen.getByLabelText('Nome');
+    const textField = screen.getByLabelText('Name');
     expect(textField).toBeInTheDocument();
     expect(textField).toHaveAttribute('type', 'text');
   });
 
-  test('renderiza um campo textarea corretamente', () => {
+  test('renders a textarea field correctly', () => {
     const field: FormField = {
-      Label: 'Descrição',
+      Label: 'Description',
       Type: 'textarea',
       Validation: {
         required: true
@@ -53,14 +53,14 @@ describe('DynamicField', () => {
       />
     );
 
-    const textarea = screen.getByLabelText('Descrição');
+    const textarea = screen.getByLabelText('Description');
     expect(textarea).toBeInTheDocument();
     expect(textarea.tagName.toLowerCase()).toBe('textarea');
   });
 
-  test('renderiza um campo de data corretamente', () => {
+  test('renders a date field correctly', () => {
     const field: FormField = {
-      Label: 'Data',
+      Label: 'Date',
       Type: 'date',
       Validation: {
         required: true
@@ -76,16 +76,16 @@ describe('DynamicField', () => {
       />
     );
 
-    const dateField = screen.getByLabelText('Data');
+    const dateField = screen.getByLabelText('Date');
     expect(dateField).toBeInTheDocument();
     expect(dateField).toHaveAttribute('type', 'date');
     expect(dateField).toHaveValue('2024-03-20');
   });
 
 
-  test('exibe mensagem de erro quando fornecida', () => {
+  test('displays error message when provided', () => {
     const field: FormField = {
-      Label: 'Nome',
+      Label: 'Name',
       Type: 'text',
       Validation: {
         required: true
@@ -99,16 +99,16 @@ describe('DynamicField', () => {
         onChange={mockOnChange}
         onBlur={mockOnBlur}
         error={true}
-        helperText="Este campo é obrigatório"
+        helperText="This field is required"
       />
     );
 
-    expect(screen.getByText('Este campo é obrigatório')).toBeInTheDocument();
+    expect(screen.getByText('This field is required')).toBeInTheDocument();
   });
 
-  test('chama onChange quando o valor é alterado', () => {
+  test('calls onChange when value changes', () => {
     const field: FormField = {
-      Label: 'Nome',
+      Label: 'Name',
       Type: 'text',
       Validation: {
         required: true
@@ -124,8 +124,8 @@ describe('DynamicField', () => {
       />
     );
 
-    const input = screen.getByLabelText('Nome');
-    fireEvent.change(input, { target: { value: 'Novo valor' } });
+    const input = screen.getByLabelText('Name');
+    fireEvent.change(input, { target: { value: 'New value' } });
     
     expect(mockOnChange).toHaveBeenCalled();
   });
