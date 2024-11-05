@@ -24,6 +24,11 @@ npm install
 ```bash
 npm run dev
 ```
+4. Execute os testes:
+
+```bash
+npm run test
+```
 
 ## 🏗️ Arquitetura da Solução
 
